@@ -10,51 +10,67 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer src="index.js"></script>
 
-    <style>
-        #table-body:hover {
-            cursor: pointer;
-        }
-    </style>
 
 </head>
 
 
 <body>
-    <h1>Generador visual de tablas</h1>
+
+    <h1 class="mb-4">Generador visual de tablas</h1>
 
     <div class="container mt-3">
-        <table class="table table-striped">
+        <table id="tabla" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>prueba</th>
-                    <th>prueba</th>
-                    <th>prueba</th>
+                    <th>Prueba</th>
+                    <th>Prueba</th>
+                    <th>Prueba</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    <td>Prueba</td>
+                    <td>Prueba</td>
+                    <td>Prueba</td>
                     <td>
-                        <h1 id="table-body">+</h1>
+                        <button class='btn btn-danger btnEliminarFila'>Eliminar</button>
                     </td>
                 </tr>
                 <tr>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
+                    <td>Prueba</td>
+                    <td>Prueba</td>
+                    <td>Prueba</td>
+                    <td>
+                        <button class='btn btn-danger btnEliminarFila'>Eliminar</button>
+                    </td>
                 </tr>
                 <tr>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                </tr>
-                <tr>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
+                    <td>Prueba</td>
+                    <td>Prueba</td>
+                    <td>Prueba</td>
+                    <td>
+                        <button class='btn btn-danger btnEliminarFila'>Eliminar</button>
+                    </td>
                 </tr>
 
             </tbody>
         </table>
+
+        <div class="mt-4">
+
+            <button id="btnAgregarFila" class="btn btn-primary">
+                Añadir fila
+            </button>
+
+            <button id="btnAgregarColumna" class="btn btn-success">
+                Añadir columna
+            </button>
+
+            <button id="btnEliminarTabla" class="btn btn-dark">
+                Eliminar tabla
+            </button>
+
+        </div>
     </div>
 </body>
 
