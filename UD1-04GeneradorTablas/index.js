@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("crear").on("click", function () {
-    $(this).append("<tr></tr>");
+  $("#crear").on("click", function () {
+    $("#table-body").append("<tr><td></td><td></td><td></td></tr>");
   });
 });
