@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+
+</head>
+
+<body>
+
+    <nav class="navbar border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-semibold" href="#">Notas</a>
+            <button id="agregarNota" class="btn btn-primary" type="button" data-bs-toggle="modal"
+                data-bs-target="#nota-modal">
+                Añadir nota
+            </button>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <div id="notas-container" class="row g-3"></div>
+    </main>
+
+    <div class="modal" id="nota-modal" tabindex="-1" aria-labelledby="nota-modal-titulo" aria-hidden="true"
+        data-editing-id="">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-titulo fs-5" id="nota-modal-titulo">Crear o editar nota</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label for="nota-titulo" class="form-label">Título de la nota</label>
+                        <input id="nota-titulo" class="form-control" type="text" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nota-tam" class="form-label">Ancho de nota</label>
+                        <select id="nota-tam" class="form-select">
+                            <option value="col-2">Pequeño</option>
+                            <option value="col-4" selected>Mediano</option>
+                            <option value="col-6">Grande</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="nota-color" class="form-label">Color de la nota</label>
+                        <select id="nota-color" class="form-select">
+                            <option value="danger">Roja</option>
+                            <option value="success">Verde</option>
+                            <option value="primary">Azul</option>
+                            <option value="warning">Amarilla</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button id="guardar-nota" type="button" class="btn btn-primary">Guardar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
