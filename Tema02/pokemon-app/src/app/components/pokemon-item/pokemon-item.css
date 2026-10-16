@@ -1,0 +1,15 @@
+.card {
+  transition: transform 0.3s ease;
+  border: none;
+  border-radius: 15px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: contain;
+  background-color: #f8f9fa;
+}

@@ -1,0 +1,13 @@
+<div class="container mt-4">
+    <div class="row g-4">
+
+
+        @for (item of pokemonList; track item.id) {
+        <div class="col-12 col-sm-6 col-lg-4">
+            <app-pokemon-item [pokemon]="item"></app-pokemon-item>
+        </div>
+
+        }
+
+    </div>
+</div>

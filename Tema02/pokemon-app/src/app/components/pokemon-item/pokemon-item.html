@@ -1,0 +1,15 @@
+<div class="col-12 col-sm-6 col-lg-4">
+    <div class="card shadow-sm h-100">
+        <img [src]="pokemon()?.foto" class="card-img-top p-3" alt="La foto">
+
+        <div class="card-body text-center">
+            <h5 class="card-title">{{pokemon()?.nombre}}</h5>
+            <p class="card-text">{{pokemon()?.descripcion}}</p>
+
+            <div class="mb-3">
+                <span class="badge bg-primary">{{pokemon()?.tipo}}</span>
+                <span class="badge bg-warning">{{pokemon()?.tipo}}</span>
+            </div>
+        </div>
+    </div>
+</div>
