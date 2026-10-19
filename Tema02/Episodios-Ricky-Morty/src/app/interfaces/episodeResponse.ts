@@ -1,18 +1,17 @@
 export interface EpisodeResponse {
-    
 
-  info: Info
-  results: EpisodeListComponent[]
+  info: EpisodeInfo
+  results: Episode[]
 }
 
-export interface Info {
+export interface EpisodeInfo {
   count: number
   pages: number
   next: string
   prev: any
 }
 
-export interface EpisodeListComponent {
+export interface Episode {
   id: number
   name: string
   air_date: string
