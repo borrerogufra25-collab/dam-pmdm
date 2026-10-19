@@ -1,0 +1,7 @@
+<p><button (click)="loadPokemonList()">Cargar lista pokemons</button></p>
+
+<h1>Pokémons</h1>
+
+@for(pok of pokemonList; track pok.name) {
+<app-pokemon-item-component [pokemon]="pok"></app-pokemon-item-component>
+}
