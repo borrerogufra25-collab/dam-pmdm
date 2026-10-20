@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Service()
 export class EpisodeService {
-    http = inject(HttpClient);
+private  http = inject(HttpClient);
 
     getEpisodes(): Observable<EpisodeResponse> {
         return this.http.get<EpisodeResponse>('https://rickandmortyapi.com/api/episode');
