@@ -1,0 +1,7 @@
+<div class="card item-card h-100 shadow-sm border-0">
+  <div class="card-body text-center d-flex flex-column">
+    <img [src]="getItemImage(item()?.name || '')" [alt]="item()?.name || 'Item'" class="item-image mb-3" />
+    <h5 class="card-title text-capitalize mb-3">{{ item()?.name }}</h5>
+    <a class="btn btn-success mt-auto" [routerLink]="['/item-detail', item()?.name]">Ver detalles</a>
+  </div>
+</div>

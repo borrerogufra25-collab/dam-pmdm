@@ -1,0 +1,11 @@
+.item-card {
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #edf9ee, #ffffff);
+}
+
+.item-image {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin: 0 auto;
+}

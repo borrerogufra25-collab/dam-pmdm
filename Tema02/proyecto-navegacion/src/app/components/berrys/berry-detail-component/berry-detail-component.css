@@ -1,0 +1,14 @@
+.card {
+  border-radius: 1rem;
+}
+
+.list-group-item {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.berry-detail-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}

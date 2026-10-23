@@ -1,0 +1,7 @@
+<div class="card berry-card h-100 shadow-sm border-0">
+  <div class="card-body text-center d-flex flex-column">
+    <img [src]="getBerryImage(berry()?.name)" [alt]="berry()?.name || 'Baya'" class="berry-image mb-3" />
+    <h5 class="card-title text-capitalize mb-3">{{ berry()?.name }}</h5>
+    <a class="btn btn-success mt-auto" [routerLink]="['/berry-detail', berry()?.name]">Ver detalles</a>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="card pokemon-card h-100 shadow-sm border-0">
+  <div class="card-body text-center d-flex flex-column">
+    <img [src]="imageUrl()" [alt]="pokemon()?.name || 'Pokemon'" class="pokemon-image mb-3" />
+    <h5 class="card-title text-capitalize mb-3">{{ pokemon()?.name }}</h5>
+    <a class="btn btn-primary mt-auto" [routerLink]="['/pokemon-detail', pokemon()?.name]">Ver detalles</a>
+  </div>
+</div>
