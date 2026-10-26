@@ -1,9 +1,11 @@
+/* Define el tamano de la imagen principal sin deformarla. */
 .pokemon-detail-image {
   width: 220px;
   height: 220px;
   object-fit: contain;
 }
 
+/* Presenta cada valor de la ficha dentro de una caja uniforme. */
 .stat-box {
   background: #f8f9fa;
   border-radius: 0.75rem;
@@ -11,6 +13,7 @@
   height: 100%;
 }
 
+/* Estilo comun para las etiquetas de los datos. */
 .label {
   display: block;
   font-size: 0.8rem;
@@ -18,6 +21,7 @@
   margin-bottom: 0.25rem;
 }
 
+/* Da formato a cada fila de estadisticas. */
 .list-group-item {
   background: #f8f9fa;
   border-radius: 0.5rem;

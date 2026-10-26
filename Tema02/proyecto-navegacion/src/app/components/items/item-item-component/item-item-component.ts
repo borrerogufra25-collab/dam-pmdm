@@ -9,8 +9,10 @@ import { Item } from '../../../interfaces/items/item-list-response';
   templateUrl: './item-item-component.html',
 })
 export class ItemItemComponent {
+  // Recibe los datos del objeto que representa esta tarjeta.
   item = input<Item>();
 
+  // Genera la URL de la imagen del objeto usando su nombre.
   getItemImage(name: string): string {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${name}.png`;
   }

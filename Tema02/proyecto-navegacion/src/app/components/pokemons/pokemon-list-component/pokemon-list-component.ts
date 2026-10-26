@@ -10,9 +10,11 @@ import { PokemonService } from '../../../services/pokemon-service';
   templateUrl: './pokemon-list-component.html',
 })
 export class PokemonListComponent implements OnInit {
+  // Servicio de consulta y senal que conserva los Pokemon del listado.
   pokemonService = inject(PokemonService);
   pokemonList = signal<Pokemon[]>([]);
 
+  // Carga los Pokemon al iniciar la pagina y actualiza la senal.
   ngOnInit(): void {
     this.pokemonService.getAllPokemons().subscribe((resp) => {
       this.pokemonList.set(resp.results);

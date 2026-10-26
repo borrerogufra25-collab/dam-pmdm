@@ -1,66 +1,72 @@
 <div class="container mt-4">
+  <!-- Muestra la ficha cuando ya estan disponibles los datos del Pokemon. -->
   @if (pokemon(); as item) {
-    <div class="card shadow-sm border-0 overflow-hidden">
-      <div class="card-header bg-warning text-dark">
-        <h3 class="mb-0 text-capitalize">{{ item.name }}</h3>
-      </div>
+  <div class="card shadow-sm border-0 overflow-hidden">
+    <div class="card-header bg-warning text-dark">
+      <h3 class="mb-0 text-capitalize">{{ item.name }}</h3>
+    </div>
 
-      <div class="card-body p-4">
-        <div class="row g-4 align-items-center">
-          <div class="col-md-4 text-center">
-            <img [src]="getImageUrl(item)" [alt]="item.name" class="pokemon-detail-image" />
-          </div>
+    <div class="card-body p-4">
+      <div class="row g-4 align-items-center">
+        <!-- Ilustracion y datos principales: altura, peso, tipos y habilidades. -->
+        <div class="col-md-4 text-center">
+          <img [src]="getImageUrl(item)" [alt]="item.name" class="pokemon-detail-image" />
+        </div>
 
-          <div class="col-md-8">
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="stat-box">
-                  <span class="label">Altura</span>
-                  <strong>{{ item.height / 10 }} m</strong>
-                </div>
+        <div class="col-md-8">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="stat-box">
+                <span class="label">Altura</span>
+                <strong>{{ item.height / 10 }} m</strong>
               </div>
-              <div class="col-md-6">
-                <div class="stat-box">
-                  <span class="label">Peso</span>
-                  <strong>{{ item.weight / 10 }} kg</strong>
-                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="stat-box">
+                <span class="label">Peso</span>
+                <strong>{{ item.weight / 10 }} kg</strong>
               </div>
-              <div class="col-md-6">
-                <div class="stat-box">
-                  <span class="label">Tipos</span>
-                  <strong class="text-capitalize">{{ item.types.map(t => t.type.name).join(', ') }}</strong>
-                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="stat-box">
+                <span class="label">Tipos</span>
+                <strong class="text-capitalize">{{ item.types.map(t => t.type.name).join(', ') }}</strong>
               </div>
-              <div class="col-md-6">
-                <div class="stat-box">
-                  <span class="label">Habilidades</span>
-                  <strong class="text-capitalize">{{ item.abilities.map(a => a.ability.name).slice(0, 2).join(', ') }}</strong>
-                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="stat-box">
+                <span class="label">Habilidades</span>
+                <strong class="text-capitalize">{{ item.abilities.map(a => a.ability.name).slice(0, 2).join(', ')
+                  }}</strong>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="mt-4">
-          <h5>Estadísticas</h5>
-          <div class="row g-2">
-            @for (stat of item.stats; track stat.stat.name) {
-              <div class="col-md-4">
-                <div class="list-group-item d-flex justify-content-between align-items-center">
-                  <span class="text-capitalize">{{ stat.stat.name }}</span>
-                  <span class="badge bg-primary rounded-pill">{{ stat.base_stat }}</span>
-                </div>
-              </div>
-            }
+      <!-- Recorre las estadisticas base y muestra el valor de cada una. -->
+      <div class="mt-4">
+        <h5>Estadísticas</h5>
+        <div class="row g-2">
+          @for (stat of item.stats; track stat.stat.name) {
+          <div class="col-md-4">
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="text-capitalize">{{ stat.stat.name }}</span>
+              <span class="badge bg-primary rounded-pill">{{ stat.base_stat }}</span>
+            </div>
           </div>
+          }
         </div>
       </div>
-
-      <div class="card-footer text-end">
-        <a class="btn btn-outline-secondary" routerLink="/pokemon-list">Volver</a>
-      </div>
     </div>
+
+    <!-- Enlace para volver al listado de Pokemon. -->
+    <div class="card-footer text-end">
+      <a class="btn btn-outline-secondary" routerLink="/pokemon-list">Volver</a>
+    </div>
+  </div>
   } @else {
-    <div class="alert alert-info">Cargando Pokémon...</div>
+  <!-- Indicador visible mientras se carga la ficha. -->
+  <div class="alert alert-info">Cargando Pokémon...</div>
   }
 </div>

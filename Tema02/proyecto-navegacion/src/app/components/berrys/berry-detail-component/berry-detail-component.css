@@ -1,12 +1,15 @@
+/* Da forma redondeada a la tarjeta de detalle. */
 .card {
   border-radius: 1rem;
 }
 
+/* Elimina el sangrado lateral de los elementos de la lista de datos. */
 .list-group-item {
   padding-left: 0;
   padding-right: 0;
 }
 
+/* Mantiene la imagen de la baya en un tamano fijo sin deformarla. */
 .berry-detail-image {
   width: 120px;
   height: 120px;

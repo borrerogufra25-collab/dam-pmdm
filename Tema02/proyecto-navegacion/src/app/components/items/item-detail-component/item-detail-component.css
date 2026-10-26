@@ -1,9 +1,11 @@
+/* Limita el tamano de la imagen y conserva sus proporciones. */
 .item-detail-image {
   width: 180px;
   height: 180px;
   object-fit: contain;
 }
 
+/* Alinea los datos de la ficha con el borde izquierdo de la lista. */
 .list-group-item {
   padding-left: 0;
   padding-right: 0;

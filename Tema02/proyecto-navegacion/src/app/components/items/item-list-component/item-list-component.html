@@ -1,11 +1,13 @@
+<!-- Titulo y rejilla de tarjetas con los objetos del catalogo. -->
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="mb-0">Objetos</h2>
   </div>
 
+  <!-- Crea una tarjeta por cada objeto de la lista. -->
   <div class="row row-cols-1 row-cols-md-3 g-3">
     @for (item of itemList(); track item.name) {
-      <app-item-item-component class="col" [item]="item"></app-item-item-component>
+    <app-item-item-component class="col" [item]="item"></app-item-item-component>
     }
   </div>
 </div>

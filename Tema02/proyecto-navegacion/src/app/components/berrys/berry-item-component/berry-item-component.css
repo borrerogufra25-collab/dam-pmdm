@@ -1,8 +1,10 @@
+/* Aspecto de la tarjeta que presenta una baya. */
 .berry-card {
   border-radius: 1rem;
   background: linear-gradient(135deg, #edf9ee, #ffffff);
 }
 
+/* Ajusta la imagen y evita que pierda su proporcion. */
 .berry-image {
   width: 90px;
   height: 90px;

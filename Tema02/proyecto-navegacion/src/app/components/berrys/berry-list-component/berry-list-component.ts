@@ -10,9 +10,11 @@ import { Berry } from '../../../interfaces/berrys/berry-list-response';
   templateUrl: './berry-list-component.html',
 })
 export class BerryListComponent implements OnInit {
+  // Servicio de consulta y senal que contiene las bayas del listado.
   berryService = inject(BerryService);
   berryList = signal<Berry[]>([]);
 
+  // Solicita las bayas al iniciar el componente y guarda los resultados.
   ngOnInit(): void {
     this.berryService.getAllBerrys().subscribe((resp) => {
       this.berryList.set(resp.results);

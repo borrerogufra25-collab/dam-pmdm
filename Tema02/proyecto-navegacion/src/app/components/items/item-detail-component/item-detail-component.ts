@@ -10,11 +10,14 @@ import { ItemService } from '../../../services/item-service';
   templateUrl: './item-detail-component.html',
 })
 export class ItemDetailComponent implements OnInit {
+  // Acceso al parametro de URL y al servicio de consulta de objetos.
   private readonly route = inject(ActivatedRoute);
   private readonly itemService = inject(ItemService);
 
+  // Conserva los datos del objeto cargado para mostrarlos en la plantilla.
   protected readonly item = signal<ItemDetailResponse | null>(null);
 
+  // Lee el nombre del objeto de la ruta y solicita sus datos detallados.
   ngOnInit(): void {
     const itemName = this.route.snapshot.paramMap.get('name');
 
@@ -27,6 +30,7 @@ export class ItemDetailComponent implements OnInit {
     });
   }
 
+  // Devuelve la imagen disponible del objeto o una cadena vacia si no existe.
   getImageUrl(item: ItemDetailResponse | null): string {
     if (!item) {
       return '';

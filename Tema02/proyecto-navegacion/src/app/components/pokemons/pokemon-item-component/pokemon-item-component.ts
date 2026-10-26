@@ -9,6 +9,7 @@ import { Pokemon } from '../../../interfaces/pokemons/pokemon-list-response';
   templateUrl: './pokemon-item-component.html',
 })
 export class PokemonItemComponent {
+  // Recibe del listado los datos del Pokemon que representa esta tarjeta.
   pokemon = input<Pokemon>();
 
   // Los sprites del repositorio se nombran por id (1.png, 2.png...), que está en la url del recurso

@@ -1,8 +1,10 @@
+/* Fondo y esquinas de la tarjeta que contiene un Pokemon. */
 .pokemon-card {
   border-radius: 1rem;
   background: linear-gradient(135deg, #fff7d6, #ffffff);
 }
 
+/* Mantiene el sprite centrado y con un tamano uniforme. */
 .pokemon-image {
   width: 120px;
   height: 120px;

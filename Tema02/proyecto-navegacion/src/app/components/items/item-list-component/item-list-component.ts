@@ -10,9 +10,11 @@ import { ItemItemComponent } from '../item-item-component/item-item-component';
   templateUrl: './item-list-component.html',
 })
 export class ItemListComponent implements OnInit {
+  // Servicio de consulta y senal con los objetos que se muestran.
   itemService = inject(ItemService);
   itemList = signal<Item[]>([]);
 
+  // Carga el listado de objetos cuando se inicializa la pagina.
   ngOnInit(): void {
     this.itemService.getAllItems().subscribe((resp) => {
       this.itemList.set(resp.results);

@@ -9,9 +9,10 @@ import { Berry } from '../../../interfaces/berrys/berry-list-response';
   templateUrl: './berry-item-component.html',
 })
 export class BerryItemComponent {
+  // Recibe desde el componente de listado los datos de una baya.
   berry = input<Berry>();
 
-  // En el repositorio de sprites las bayas son items: berries/<nombre>-berry.png
+  // En los sprites, las imagenes de bayas usan la ruta berries/<nombre>-berry.png.
   getBerryImage(name: string | undefined): string {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/berries/${name}-berry.png`;
   }

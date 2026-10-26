@@ -1,8 +1,10 @@
+/* Define el fondo y las esquinas de la tarjeta de objeto. */
 .item-card {
   border-radius: 1rem;
   background: linear-gradient(135deg, #edf9ee, #ffffff);
 }
 
+/* Controla el tamano y la alineacion de la imagen del objeto. */
 .item-image {
   width: 90px;
   height: 90px;

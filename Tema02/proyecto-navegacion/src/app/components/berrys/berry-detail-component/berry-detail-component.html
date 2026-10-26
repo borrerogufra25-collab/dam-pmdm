@@ -1,51 +1,61 @@
 <div class="container mt-4">
+  <!-- Muestra la ficha cuando ya se han recibido los datos de la baya. -->
   @if (berry(); as item) {
-    <div class="card shadow-sm border-0">
-      <div class="card-header bg-success text-white">
-        <h3 class="mb-0 text-capitalize">{{ item.name }}</h3>
-      </div>
+  <div class="card shadow-sm border-0">
+    <div class="card-header bg-success text-white">
+      <h3 class="mb-0 text-capitalize">{{ item.name }}</h3>
+    </div>
 
-      <div class="card-body">
-        <div class="row g-4">
-          <div class="col-12 text-center">
-            <img [src]="getImageUrl(item)" [alt]="item.name" class="berry-detail-image" />
-          </div>
+    <div class="card-body">
+      <div class="row g-4">
+        <!-- Imagen representativa de la baya. -->
+        <div class="col-12 text-center">
+          <img [src]="getImageUrl(item)" [alt]="item.name" class="berry-detail-image" />
+        </div>
 
-          <div class="col-md-6">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong>Tiempo de crecimiento:</strong> {{ item.growth_time }}</li>
-              <li class="list-group-item"><strong>Cosecha máxima:</strong> {{ item.max_harvest }}</li>
-              <li class="list-group-item"><strong>Poder de regalo natural:</strong> {{ item.natural_gift_power }}</li>
-              <li class="list-group-item"><strong>Tamaño:</strong> {{ item.size }}</li>
-              <li class="list-group-item"><strong>Suavidad:</strong> {{ item.smoothness }}</li>
-              <li class="list-group-item"><strong>Sequedad del suelo:</strong> {{ item.soil_dryness }}</li>
-            </ul>
-          </div>
+        <!-- Datos de cultivo y caracteristicas principales. -->
+        <div class="col-md-6">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Tiempo de crecimiento:</strong> {{ item.growth_time }}</li>
+            <li class="list-group-item"><strong>Cosecha máxima:</strong> {{ item.max_harvest }}</li>
+            <li class="list-group-item"><strong>Poder de regalo natural:</strong> {{ item.natural_gift_power }}</li>
+            <li class="list-group-item"><strong>Tamaño:</strong> {{ item.size }}</li>
+            <li class="list-group-item"><strong>Suavidad:</strong> {{ item.smoothness }}</li>
+            <li class="list-group-item"><strong>Sequedad del suelo:</strong> {{ item.soil_dryness }}</li>
+          </ul>
+        </div>
 
-          <div class="col-md-6">
-            <div class="card h-100 bg-light border-0">
-              <div class="card-body">
-                <h5 class="card-title">Más información</h5>
-                <p class="mb-2"><strong>Firmeza:</strong> <span class="text-capitalize">{{ item.firmness.name }}</span></p>
-                <p class="mb-2"><strong>Tipo de regalo natural:</strong> <span class="text-capitalize">{{ item.natural_gift_type.name }}</span></p>
-                <p class="mb-2"><strong>Ítem asociado:</strong> <span class="text-capitalize">{{ item.item.name }}</span></p>
-                <p class="mb-2"><strong>Sabores:</strong></p>
-                <div class="d-flex flex-wrap gap-2">
-                  @for (flavor of item.flavors; track flavor.flavor.name) {
-                    <span class="badge bg-primary rounded-pill text-capitalize">{{ flavor.flavor.name }}</span>
-                  }
-                </div>
+        <!-- Informacion relacionada: firmeza, tipo de regalo y sabores. -->
+        <div class="col-md-6">
+          <div class="card h-100 bg-light border-0">
+            <div class="card-body">
+              <h5 class="card-title">Más información</h5>
+              <p class="mb-2"><strong>Firmeza:</strong> <span class="text-capitalize">{{ item.firmness.name }}</span>
+              </p>
+              <p class="mb-2"><strong>Tipo de regalo natural:</strong> <span class="text-capitalize">{{
+                  item.natural_gift_type.name }}</span></p>
+              <p class="mb-2"><strong>Ítem asociado:</strong> <span class="text-capitalize">{{ item.item.name }}</span>
+              </p>
+              <p class="mb-2"><strong>Sabores:</strong></p>
+              <div class="d-flex flex-wrap gap-2">
+                <!-- Recorre los sabores para mostrarlos como etiquetas. -->
+                @for (flavor of item.flavors; track flavor.flavor.name) {
+                <span class="badge bg-primary rounded-pill text-capitalize">{{ flavor.flavor.name }}</span>
+                }
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="card-footer text-end">
-        <a class="btn btn-outline-secondary" routerLink="/berry-list">Volver</a>
-      </div>
     </div>
+
+    <!-- Enlace para volver al listado de bayas. -->
+    <div class="card-footer text-end">
+      <a class="btn btn-outline-secondary" routerLink="/berry-list">Volver</a>
+    </div>
+  </div>
   } @else {
-    <div class="alert alert-info">Cargando información de la baya...</div>
+  <!-- Indicador visible mientras se carga la respuesta de la API. -->
+  <div class="alert alert-info">Cargando información de la baya...</div>
   }
 </div>
