@@ -10,12 +10,12 @@ import { PokemonItem } from '../pokemon-item/pokemon-item';
   templateUrl: './pokemon-list.html',
 })
 export class PokemonList implements OnInit {
-    private pokemonService = inject(PokemonService);
-    pokemonList = signal<Pokemon[]>([]); 
+  private pokemonService = inject(PokemonService);
+  pokemonList = signal<Pokemon[]>([]);
 
-    ngOnInit(): void {
-      this.pokemonService.getAllPokemons().subscribe(resp => {
-        this.pokemonList.set(resp.results);
-      });
-    }
+  ngOnInit(): void {
+    this.pokemonService.getAllPokemons().subscribe((resp) => {
+      this.pokemonList.set(resp.results);
+    });
+  }
 }
