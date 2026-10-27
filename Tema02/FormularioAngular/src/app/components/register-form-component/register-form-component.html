@@ -1,63 +1,91 @@
-<h4 class="mb-3">Formulario</h4>
-
-<form mb-3>
+<form>
 
     <div class="mb-3">
-        <label for="" class="form-label">Nombre</label>
-        <input [ngClass]="nombre" type="text" class="form-control" name="" id="" placeholder="Introduce tu nombre" />
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" placeholder="Introduce tu nombre" [(ngModel)]="nombre">
     </div>
 
     <div class="mb-3">
-        <label for="" class="form-label">Apellido</label>
-        <input type="text" class="form-control" name="" id="" aria-describedby=""
-            placeholder="Introduce tus apellidos" />
+        <label class="form-label">Apellidos</label>
+        <input type="text" class="form-control" placeholder="Introduce tus apellidos" [(ngModel)]="apellidos">
     </div>
 
     <div class="mb-3">
-        <label for="" class="form-label">DNI</label>
-        <input type="text" class="form-control" name="" id="" aria-describedby="" placeholder="Introduce tu DNI" />
+        <label class="form-label">NIF</label>
+        <input type="text" class="form-control" placeholder="12345678A" [(ngModel)]="nif">
     </div>
 
     <div class="mb-3">
-        <label for="" class="form-label">Correo</label>
-        <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId"
-            placeholder="abc@mail.com" />
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" placeholder="ejemplo@correo.com" [(ngModel)]="email">
     </div>
 
     <div class="mb-3">
-        <label for="" class="form-label">Teléfono</label>
-        <input type="tel" class="form-control" name="" id="" aria-describedby="helpId"
-            placeholder="Introduce tu número de teléfono " />
-    </div>
-
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="sexo" id="sexo" />
-        <label class="form-check-label" for="sexo"> Hombre </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="sexo" id="sexo" />
-        <label class="form-check-label" for="sexo"> Mujer </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="sexo" id="sexo" />
-        <label class="form-check-label" for="sexo"> Otro </label>
+        <label class="form-label">Teléfono</label>
+        <input type="tel" class="form-control" placeholder="600123456" [(ngModel)]="telefono">
     </div>
 
     <div class="mb-3">
-        <label for="" class="form-label">¿Cómo nos conociste?</label>
-        <select multiple class="form-select form-select-lg" name="" id="">
-            <option selected>Elige una</option>
-            <option value="1">Buscando en Google</option>
-            <option value="2">A través de un amigo</option>
-            <option value="3">Por mi profesor</option>
-            <option value="4">Otro</option>
+        <label class="form-label d-block">Sexo</label>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="Hombre" [(ngModel)]="sexo">
+            <label class="form-check-label">
+                Hombre
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="Mujer" [(ngModel)]="sexo">
+            <label class="form-check-label">
+                Mujer
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="Otro" [(ngModel)]="sexo">
+            <label class="form-check-label">
+                Otro
+            </label>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">
+            ¿Cómo conoció la página?
+        </label>
+
+        <select class="form-select" [(ngModel)]="comoConocio">
+
+            <option value="" selected>Seleccione una opción</option>
+            <option value="Google">Buscando en Google</option>
+            <option value="Amigo">A través de un amigo</option>
+            <option value="Profesor">Por mi profesor</option>
+
         </select>
     </div>
 
     <div class="mb-3">
-        <label for="" class="form-label">Contraseña<a href=""></a></label>
-        <input type="password" class="form-control" name="" id="" placeholder="Introduce la contraseña" />
+        <label class="form-label">Contraseña</label>
+        <input type="password" class="form-control" placeholder="Introduce tu contraseña" [(ngModel)]="contraseña">
     </div>
 
+    <div class="mb-3">
+        <label class="form-label">Confirmar contraseña</label>
+        <input type="password" class="form-control" placeholder="Repite la contraseña"
+            [(ngModel)]="confirmarContraseña">
+    </div>
+
+    <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" [(ngModel)]="aceptaTerminos">
+
+        <label class="form-check-label">
+            Acepto los términos y condiciones
+        </label>
+    </div>
+
+    <button type="button" (click)="registrar()" class="theme-primary btn-solid btn-styled">
+        Registrarse
+    </button>
 
 </form>

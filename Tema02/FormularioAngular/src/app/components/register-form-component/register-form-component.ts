@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgClass } from '../../../../node_modules/@angular/common/types/_common_module-chunk';
 
 @Component({
-  imports: [FormsModule, NgClass],
+  imports: [FormsModule],
   selector: 'app-register-form-component',
   styleUrl: './register-form-component.css',
   templateUrl: './register-form-component.html',
@@ -11,12 +10,29 @@ import { NgClass } from '../../../../node_modules/@angular/common/types/_common_
 export class RegisterFormComponent {
   nombre = '';
   apellidos = '';
-  dni = '';
+  nif = '';
   email = '';
   telefono = '';
-  // Sexo mirar
-  // Seleccionar cómo conoció la página mirar
+
+  sexo = '';
+
+  comoConocio = '';
+
   contraseña = '';
   confirmarContraseña = '';
-  // terminos mirar
+
+  aceptaTerminos = false;
+
+  registrar(): void {
+    console.log('Nombre:', this.nombre);
+    console.log('Apellidos:', this.apellidos);
+    console.log('NIF:', this.nif);
+    console.log('Email:', this.email);
+    console.log('Teléfono:', this.telefono);
+    console.log('Sexo:', this.sexo);
+    console.log('Cómo conoció la página:', this.comoConocio);
+    console.log('Contraseña:', this.contraseña);
+    console.log('Confirmar contraseña:', this.confirmarContraseña);
+    console.log('Acepta términos:', this.aceptaTerminos);
+  }
 }
