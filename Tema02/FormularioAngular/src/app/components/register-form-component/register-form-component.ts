@@ -18,8 +18,8 @@ export class RegisterFormComponent {
 
   comoConocio = '';
 
-  contraseña = '';
-  confirmarContraseña = '';
+  contrasenia = '';
+  confirmarContrasenia = '';
 
   aceptaTerminos = false;
 
@@ -31,8 +31,8 @@ export class RegisterFormComponent {
     console.log('Teléfono:', this.telefono);
     console.log('Sexo:', this.sexo);
     console.log('Cómo conoció la página:', this.comoConocio);
-    console.log('Contraseña:', this.contraseña);
-    console.log('Confirmar contraseña:', this.confirmarContraseña);
+    console.log('Contraseña:', this.contrasenia);
+    console.log('Confirmar contraseña:', this.confirmarContrasenia);
     console.log('Acepta términos:', this.aceptaTerminos);
   }
 }
