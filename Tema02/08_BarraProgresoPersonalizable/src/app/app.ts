@@ -1,8 +1,8 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CustomProgressBarComponent } from './components/custom-progress-bar-component/custom-progress-bar-component';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [CustomProgressBarComponent],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

@@ -1,0 +1,5 @@
+<div class="progress" role="progressbar" aria-label="Barra de progreso" [attr.aria-valuenow]="value()">
+    <div class="progress-bar progress-bar-striped" [class]="'bg-' + color()" [style.width.%]="value()">
+        {{ value() }}%
+    </div>
+</div>
