@@ -9,11 +9,14 @@ import { Result } from '../../interfaces/character-list-response';
 })
 export class CharacterItemComponent {
   character = input<Result>();
-
   characterClicked = output<number>();
-  id: number = 0;
 
   emitCharacterClicked() {
-    this.characterClicked.emit(this.id);
+    const id = this.character()?.id;
+    if (id) {
+      this.characterClicked.emit(id);
+    } else {
+      alert('Personaje no existe');
+    }
   }
 }
