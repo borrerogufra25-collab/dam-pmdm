@@ -14,22 +14,21 @@ import { PokemonModal } from '../pokemon-modal/pokemon-modal';
   templateUrl: './pokemon-list-component.html',
 })
 export class PokemonListComponent implements OnInit {
-
   pokemonService = inject(PokemonService);
   pokemonList = signal<Pokemon[]>([]);
   private modalService = inject(NgbModal);
 
-    ngOnInit(): void {
-   this.pokemonService.getAll().subscribe(resp => {
+  ngOnInit(): void {
+    this.pokemonService.getAll().subscribe((resp) => {
       this.pokemonList.set(resp.results);
     });
   }
 
   openPokemonModal(id: string) {
-        console.log('Pokemon id recibido: '+id);
-    this.pokemonService.getOne(id).subscribe(resp => {
+    console.log('Pokemon id recibido: ' + id);
+    this.pokemonService.getOne(id).subscribe((resp) => {
       const modalRef = this.modalService.open(PokemonModal);
-		modalRef.componentInstance.name = resp.name;
+      modalRef.componentInstance.name = resp.name;
     });
   }
 }

@@ -17,7 +17,7 @@ export class PokemonItemComponent {
   }
 
   getPokemonId() {
-    this.id = this.pokemon()?.url.split("/")[6]!;
+    this.id = this.pokemon()?.url.split('/')[6]!;
     return this.id;
   }
 
