@@ -1,8 +1,12 @@
 <div class="card text-center">
 
     <div class="card-body">
+        <img class="card-img-top" src={{characterDetail?.image}} alt="" />
         <h4 class="card-title">{{characterDetail?.name}}</h4>
+        <p class="card-text">{{characterDetail?.status}}</p>
         <p class="card-text">{{characterDetail?.species}}</p>
+        <p class="card-text">{{characterDetail?.type}}</p>
+        <p class="card-text">{{characterDetail?.gender}}</p>
     </div>
     <button type="button" class="btn btn-outline-secondary" (click)="activeModal.close()">Close</button>
 </div>
