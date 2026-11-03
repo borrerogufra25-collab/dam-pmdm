@@ -1,18 +1,15 @@
 <div class="card text-center">
-
     <div class="card-body">
-        <h4 class="card-title">{{episodeDetail?.name}}</h4>
-        <p class="card-text">{{episodeDetail?.air_date}}</p>
-        <p class="card-text">{{episodeDetail?.episode}}</p>
+        <h4 class="card-title">{{ episodeDetail?.name }}</h4>
+        <p class="card-text">{{ episodeDetail?.air_date }}</p>
+        <p class="card-text">{{ episodeDetail?.episode }}</p>
 
-        @for (epi of episodeList(); track epi.id) {
-        <img [src]="` https://rickandmortyapi.com/api/character/${getId()}`" class="bd-placeholder-img" height="140"
-            preserveAspectRatio="xMidYMid slice" role="img" width="140" alt="..." />
-
-        }
-
-        <p class="card-text">{{episodeDetail?.characters}}</p>
+        <div class="characters">
+            @for (url of episodeDetail?.characters; track url) {
+            <img [src]="getAvatar(url)" width="80" height="80" />
+            }
+        </div>
     </div>
-    <button type="button" class="btn btn-outline-secondary" (click)="activeModal.close()">Close</button>
 
+    <button type="button" class="btn btn-outline-secondary" (click)="activeModal.close()">Close</button>
 </div>

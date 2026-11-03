@@ -1,0 +1,11 @@
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.characters img {
+  border-radius: 50%;
+  object-fit: cover;
+}
