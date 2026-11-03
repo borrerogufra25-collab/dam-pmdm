@@ -19,4 +19,5 @@ export class EpisodeItemComponent {
       alert('Episodio no encontrado');
     }
   }
+
 }

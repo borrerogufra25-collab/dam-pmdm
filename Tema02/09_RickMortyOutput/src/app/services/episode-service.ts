@@ -15,4 +15,5 @@ export class EpisodeService {
   getOne(id: number): Observable<EpisodeDetailResponse> {
     return this.http.get<EpisodeDetailResponse>(`https://rickandmortyapi.com/api/episode/${id}`);
   }
+
 }
