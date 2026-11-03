@@ -1,1 +1,13 @@
-<router-outlet></router-outlet>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" routerLink="character-list">Personajes</a>
+        <div class="navbar-nav ms-auto d-flex flex-row gap-3">
+            <a class="nav-link" routerLink="character-list">Personajes</a>
+            <a class="nav-link" routerLink="episode-list">Episodios</a>
+        </div>
+    </div>
+</nav>
+
+<main class="container py-4">
+    <router-outlet></router-outlet>
+</main>
