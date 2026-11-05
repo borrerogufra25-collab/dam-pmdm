@@ -11,5 +11,5 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class PeopleModalComponent {
   activeModal = inject(NgbActiveModal);
 
-  @Input() peopleDetailResponse: PeopleDetailResponse | undefined;
+  @Input() peopleDetail: PeopleDetailResponse | undefined;
 }
