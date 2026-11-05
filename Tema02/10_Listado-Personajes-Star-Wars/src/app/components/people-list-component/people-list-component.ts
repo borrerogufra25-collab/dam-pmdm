@@ -22,10 +22,11 @@ export class PeopleListComponent {
     });
   }
 
-  openPeopleModal(id: number) {
+  openPokemonModal(id: number) {
     this.peopleService.getOne(id).subscribe((resp) => {
-      const modalRef = this.modalService.open(PeopleModalComponent);
-      modalRef.componentInstance.characterDetail = resp;
+      // STEP12: abro el modal que está declarado en el componente PokewmonModal y le paso la información del detalle que he recibido de la API
+      const modalRef = this.modalService.open(PokemonModal);
+      modalRef.componentInstance.pokemonDetail = resp;
     });
   }
 }

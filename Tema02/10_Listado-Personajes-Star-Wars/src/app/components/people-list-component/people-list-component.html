@@ -3,7 +3,7 @@
     @for (peo of peopleList(); track peo.name) {
     <div class="col-md-3">
         <app-people-item-component [people]="peo"
-            (poeopleClicked)="openPeopleModal(+$event)"></app-people-item-component>
+            (poeopleClicked)="openPeopleModal($event)"></app-people-item-component>
     </div>
     }
 
