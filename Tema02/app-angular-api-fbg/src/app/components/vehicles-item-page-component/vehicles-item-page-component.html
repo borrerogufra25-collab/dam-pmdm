@@ -1,0 +1,9 @@
+<div class="card text-center">
+    <div class="card-body">
+        <h4 class="card-title">{{vehicle()?.name}}</h4>
+        <p class="card-text">Equipo: {{vehicle()?.crew}}</p>
+        <p class="card-text">Tamaño: {{vehicle()?.length}}</p>
+    </div>
+
+    <button type="button" class="btn-solid theme-primary" (click)="emitVehicleClicked()">Ver más</button>
+</div>
