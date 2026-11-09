@@ -14,6 +14,13 @@ export class FormControlComponent {
     categoria: new FormControl(''),
     etiqueta: new FormControl(''),
     emailAutor: new FormControl(''),
-    publicacion: new FormControl(''),
+    publicacion: new FormControl('ahora'),
+    fechaPublicacion: new FormControl({ value: '', disabled: true }),
   });
+
+  onSubmit(): void {
+    if (this.formularioBlog.valid) {
+      console.log(this.formularioBlog.value);
+    }
+  }
 }

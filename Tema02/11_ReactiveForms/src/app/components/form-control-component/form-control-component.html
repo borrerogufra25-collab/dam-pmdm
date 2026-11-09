@@ -1,1 +1,58 @@
-<p>form-control-component works!</p>
+<form [formGroup]="formularioBlog" (ngSubmit)="onSubmit()">
+
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Título</label>
+        <input type="text" class="form-control" id="titulo" formControlName="titulo" />
+    </div>
+
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control" id="descripcion" rows="3" formControlName="descripcion"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="categoria" class="form-label">Categoría</label>
+        <select class="form-select form-select-lg" id="categoria" formControlName="categoria">
+            <option disabled selected>Elige una</option>
+            <option value="tec">Tecnología</option>
+            <option value="dis">Diseño</option>
+            <option value="pro">Programación</option>
+            <option value="nov">Novedades</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="etiqueta" class="form-label">Etiqueta</label>
+        <input type="text" class="form-control" id="etiqueta" formControlName="etiqueta" />
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Correo</label>
+        <input type="email" class="form-control" id="email" placeholder="abc@mail.com" formControlName="emailAutor" />
+    </div>
+
+    <legend class="col-form-label pt-0">Tipo de publicación</legend>
+
+    <div class="form-check">
+        <input class="form-check-input" type="radio" id="pubAhora" value="ahora" formControlName="publicacion" />
+        <label class="form-check-label" for="pubAhora">
+            Publicar ahora
+        </label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="radio" id="pubProgramar" value="programar"
+            formControlName="publicacion" />
+        <label class="form-check-label" for="pubProgramar">
+            Programar fecha
+        </label>
+    </div>
+
+    <div class="mb-3">
+        <label for="fechaPublicacion" class="form-label">Fecha y hora de publicación</label>
+        <input type="datetime-local" class="form-control" id="fechaPublicacion" formControlName="fechaPublicacion" />
+    </div>
+
+
+    <button type="submit" [disabled]="formularioBlog.invalid">Enviar</button>
+</form>
