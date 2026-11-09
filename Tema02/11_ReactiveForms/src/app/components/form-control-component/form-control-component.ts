@@ -9,18 +9,28 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class FormControlComponent {
   formularioBlog = new FormGroup({
-    titulo: new FormControl(''),
-    descripcion: new FormControl(''),
-    categoria: new FormControl(''),
-    etiqueta: new FormControl(''),
-    emailAutor: new FormControl(''),
-    publicacion: new FormControl('ahora'),
-    fechaPublicacion: new FormControl({ value: '', disabled: true }),
+    title: new FormControl(''),
+    description: new FormControl(''),
+    category: new FormControl(''),
+    tags: new FormControl(''),
+    email: new FormControl(''),
+    publishNow: new FormControl(true),
+    publishDate: new FormControl({ value: '', disabled: true }),
   });
 
+  constructor() {
+    this.formularioBlog.controls.publishNow.valueChanges.subscribe((ahora) => {
+      const fecha = this.formularioBlog.controls.publishDate;
+      if (ahora) {
+        fecha.reset('');
+        fecha.disable();
+      } else {
+        fecha.enable();
+      }
+    });
+  }
+
   onSubmit(): void {
-    if (this.formularioBlog.valid) {
-      console.log(this.formularioBlog.value);
-    }
+    console.log(this.formularioBlog.getRawValue());
   }
 }

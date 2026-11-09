@@ -1,58 +1,53 @@
-<form [formGroup]="formularioBlog" (ngSubmit)="onSubmit()">
+<form [formGroup]="formularioBlog" (ngSubmit)="onSubmit()" class="form-card">
+    <h2 class="form-title">Nueva publicación</h2>
 
     <div class="mb-3">
-        <label for="titulo" class="form-label">Título</label>
-        <input type="text" class="form-control" id="titulo" formControlName="titulo" />
+        <label for="title" class="form-label">Título</label>
+        <input id="title" type="text" class="form-control" formControlName="title" />
     </div>
 
     <div class="mb-3">
-        <label for="descripcion" class="form-label">Descripción</label>
-        <textarea class="form-control" id="descripcion" rows="3" formControlName="descripcion"></textarea>
+        <label for="description" class="form-label">Descripción</label>
+        <textarea id="description" rows="3" class="form-control" formControlName="description"></textarea>
     </div>
 
     <div class="mb-3">
-        <label for="categoria" class="form-label">Categoría</label>
-        <select class="form-select form-select-lg" id="categoria" formControlName="categoria">
-            <option disabled selected>Elige una</option>
-            <option value="tec">Tecnología</option>
-            <option value="dis">Diseño</option>
-            <option value="pro">Programación</option>
-            <option value="nov">Novedades</option>
+        <label for="category" class="form-label">Categoría</label>
+        <select id="category" class="form-select" formControlName="category">
+            <option value="" selected disabled>Elige una</option>
+            <option value="Tecnología">Tecnología</option>
+            <option value="Diseño">Diseño</option>
+            <option value="Programación">Programación</option>
+            <option value="Novedades">Novedades</option>
         </select>
     </div>
 
     <div class="mb-3">
-        <label for="etiqueta" class="form-label">Etiqueta</label>
-        <input type="text" class="form-control" id="etiqueta" formControlName="etiqueta" />
+        <label for="tags" class="form-label">Etiquetas</label>
+        <input id="tags" type="text" class="form-control" formControlName="tags" />
     </div>
 
     <div class="mb-3">
-        <label for="email" class="form-label">Correo</label>
-        <input type="email" class="form-control" id="email" placeholder="abc@mail.com" formControlName="emailAutor" />
+        <label for="email" class="form-label">Email del autor</label>
+        <input id="email" type="email" class="form-control" formControlName="email" />
     </div>
 
-    <legend class="col-form-label pt-0">Tipo de publicación</legend>
-
-    <div class="form-check">
-        <input class="form-check-input" type="radio" id="pubAhora" value="ahora" formControlName="publicacion" />
-        <label class="form-check-label" for="pubAhora">
-            Publicar ahora
-        </label>
-    </div>
-
-    <div class="form-check">
-        <input class="form-check-input" type="radio" id="pubProgramar" value="programar"
-            formControlName="publicacion" />
-        <label class="form-check-label" for="pubProgramar">
-            Programar fecha
-        </label>
-    </div>
+    <fieldset class="mb-3">
+        <legend class="col-form-label pt-0">Publicación</legend>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="pubNow" [value]="true" formControlName="publishNow" />
+            <label class="form-check-label" for="pubNow">Publicar ahora</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="pubLater" [value]="false" formControlName="publishNow" />
+            <label class="form-check-label" for="pubLater">Programar fecha</label>
+        </div>
+    </fieldset>
 
     <div class="mb-3">
-        <label for="fechaPublicacion" class="form-label">Fecha y hora de publicación</label>
-        <input type="datetime-local" class="form-control" id="fechaPublicacion" formControlName="fechaPublicacion" />
+        <label for="publishDate" class="form-label">Fecha y hora</label>
+        <input id="publishDate" type="datetime-local" class="form-control" formControlName="publishDate" />
     </div>
 
-
-    <button type="submit" [disabled]="formularioBlog.invalid">Enviar</button>
+    <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
