@@ -3,6 +3,5 @@ import { FormControlComponent } from './components/form-control-component/form-c
 
 export const routes: Routes = [
   { path: 'form-control', component: FormControlComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'fom-control' },
-  { path: '**' },
+  { path: '', pathMatch: 'full', redirectTo: 'form-control' },
 ];

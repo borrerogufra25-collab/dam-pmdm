@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   imports: [ReactiveFormsModule],
@@ -9,11 +9,11 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class FormControlComponent {
   formularioBlog = new FormGroup({
-    title: new FormControl(''),
-    description: new FormControl(''),
-    category: new FormControl(''),
-    tags: new FormControl(''),
-    email: new FormControl(''),
+    title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    description: new FormControl('', [Validators.required, Validators.maxLength(250)]),
+    category: new FormControl('', Validators.required),
+    tags: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     publishNow: new FormControl(true),
     publishDate: new FormControl({ value: '', disabled: true }),
   });
