@@ -1,1 +1,225 @@
-<p>formulario-page works!</p>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h1 class="h3 mb-4">Registro</h1>
+
+                    <form [formGroup]="formularioRegistro" (ngSubmit)="onSubmit()" novalidate>
+
+                        <fieldset class="mb-4">
+                            <legend class="h5 border-bottom pb-2 mb-3">Datos personales</legend>
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input id="nombre" type="text" class="form-control" formControlName="nombre"
+                                        [class.is-invalid]="esInvalido('nombre')" />
+                                    @if (esInvalido('nombre')) {
+                                    <div class="invalid-feedback">
+                                        @if (formularioRegistro.get('nombre')?.errors?.['required']) {
+                                        <div>El nombre es obligatorio</div>
+                                        }
+                                        @if (formularioRegistro.get('nombre')?.errors?.['minlength']) {
+                                        <div>Mínimo 2 caracteres</div>
+                                        }
+                                        @if (formularioRegistro.get('nombre')?.errors?.['maxlength']) {
+                                        <div>Máximo 30 caracteres</div>
+                                        }
+                                        @if (formularioRegistro.get('nombre')?.errors?.['pattern']) {
+                                        <div>Solo se permiten letras</div>
+                                        }
+                                    </div>
+                                    }
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <label for="apellidos" class="form-label">Apellidos</label>
+                                    <input id="apellidos" type="text" class="form-control" formControlName="apellidos"
+                                        [class.is-invalid]="esInvalido('apellidos')" />
+                                    @if (esInvalido('apellidos')) {
+                                    <div class="invalid-feedback">
+                                        @if (formularioRegistro.get('apellidos')?.errors?.['required']) {
+                                        <div>Los apellidos son obligatorios</div>
+                                        }
+                                        @if (formularioRegistro.get('apellidos')?.errors?.['minlength']) {
+                                        <div>Mínimo 2 caracteres</div>
+                                        }
+                                        @if (formularioRegistro.get('apellidos')?.errors?.['maxlength']) {
+                                        <div>Máximo 50 caracteres</div>
+                                        }
+                                        @if (formularioRegistro.get('apellidos')?.errors?.['pattern']) {
+                                        <div>Solo se permiten letras</div>
+                                        }
+                                    </div>
+                                    }
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <label for="dni" class="form-label">DNI / NIE</label>
+                                    <input id="dni" type="text" class="form-control" placeholder="12345678Z o X1234567L"
+                                        formControlName="dni" [class.is-invalid]="esInvalido('dni')" />
+                                    @if (esInvalido('dni')) {
+                                    <div class="invalid-feedback">
+                                        @if (formularioRegistro.get('dni')?.errors?.['required']) {
+                                        <div>El DNI/NIE es obligatorio</div>
+                                        }
+                                        @if (formularioRegistro.get('dni')?.errors?.['pattern']) {
+                                        <div>Formato no válido</div>
+                                        }
+                                        @if (formularioRegistro.get('dni')?.errors?.['letraDni']) {
+                                        <div>La letra no corresponde al número</div>
+                                        }
+                                    </div>
+                                    }
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <label for="telefono" class="form-label">Teléfono móvil</label>
+                                    <input id="telefono" type="tel" class="form-control" placeholder="612345678"
+                                        formControlName="telefono" [class.is-invalid]="esInvalido('telefono')" />
+                                    @if (esInvalido('telefono')) {
+                                    <div class="invalid-feedback">Introduce un móvil español válido</div>
+                                    }
+                                </div>
+                            </div>
+                        </fieldset>
+
+
+                        <fieldset class="mb-4">
+                            <legend class="h5 border-bottom pb-2 mb-3">Datos de la cuenta</legend>
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
+                                    <input id="nombreUsuario" type="text" class="form-control"
+                                        formControlName="nombreUsuario"
+                                        [class.is-invalid]="esInvalido('nombreUsuario')" />
+                                    @if (esInvalido('nombreUsuario')) {
+                                    <div class="invalid-feedback">
+                                        @if (formularioRegistro.get('nombreUsuario')?.errors?.['required']) {
+                                        <div>El nombre de usuario es obligatorio</div>
+                                        }
+                                        @if (
+                                        formularioRegistro.get('nombreUsuario')?.errors?.['minlength'] ||
+                                        formularioRegistro.get('nombreUsuario')?.errors?.['maxlength']
+                                        ) {
+                                        <div>Entre 4 y 15 caracteres</div>
+                                        }
+                                        @if (formularioRegistro.get('nombreUsuario')?.errors?.['pattern']) {
+                                        <div>Debe empezar por letra y no contener espacios ni símbolos</div>
+                                        }
+                                    </div>
+                                    }
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input id="email" type="email" class="form-control" formControlName="email"
+                                        [class.is-invalid]="esInvalido('email')" />
+                                    @if (esInvalido('email')) {
+                                    <div class="invalid-feedback">
+                                        @if (formularioRegistro.get('email')?.errors?.['required']) {
+                                        <div>El email es obligatorio</div>
+                                        }
+                                        @if (formularioRegistro.get('email')?.errors?.['email']) {
+                                        <div>Formato de email no válido</div>
+                                        }
+                                    </div>
+                                    }
+                                </div>
+
+
+                                <div class="col-12">
+                                    <label for="contrasenia" class="form-label">Contraseña</label>
+                                    <input id="contrasenia" type="password" class="form-control"
+                                        formControlName="contrasenia" [class.is-invalid]="esInvalido('contrasenia')" />
+                                    @if (esInvalido('contrasenia')) {
+                                    <div class="invalid-feedback">
+                                        @if (formularioRegistro.get('contrasenia')?.errors?.['required']) {
+                                        <div>La contraseña es obligatoria</div>
+                                        }
+                                        @if (formularioRegistro.get('contrasenia')?.errors?.['minlength']) {
+                                        <div>Debe tener al menos 8 caracteres</div>
+                                        }
+                                        @if (formularioRegistro.get('contrasenia')?.errors?.['maxlength']) {
+                                        <div>No puede superar los 20 caracteres</div>
+                                        }
+                                        @if (formularioRegistro.get('contrasenia')?.errors?.['sinMayuscula']) {
+                                        <div>Debe incluir al menos una mayúscula</div>
+                                        }
+                                        @if (formularioRegistro.get('contrasenia')?.errors?.['sinMinuscula']) {
+                                        <div>Debe incluir al menos una minúscula</div>
+                                        }
+                                        @if (formularioRegistro.get('contrasenia')?.errors?.['sinNumero']) {
+                                        <div>Debe incluir al menos un número</div>
+                                        }
+                                        @if (formularioRegistro.get('contrasenia')?.errors?.['sinEspecial']) {
+                                        <div>Debe incluir al menos un carácter especial</div>
+                                        }
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                        </fieldset>
+
+
+                        <fieldset class="mb-4">
+                            <legend class="h5 border-bottom pb-2 mb-3">Preferencias del curso</legend>
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label for="cursoInteres" class="form-label">Curso de interés</label>
+                                    <select id="cursoInteres" class="form-select" formControlName="cursoInteres"
+                                        [class.is-invalid]="esInvalido('cursoInteres')">
+                                        <option value="" selected disabled>Selecciona un curso</option>
+                                        <option value="1">Desarrollo de interfaces</option>
+                                        <option value="2">Programación multimedia y dispositivos móviles</option>
+                                        <option value="3">Proyecto intermodular</option>
+                                        <option value="4">Sistemas de Gestión Empresarial</option>
+                                        <option value="5">Acceso a datos</option>
+                                    </select>
+                                    @if (esInvalido('cursoInteres')) {
+                                    <div class="invalid-feedback">Selecciona un curso</div>
+                                    }
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <label for="horasDisponibles" class="form-label">Horas a la semana</label>
+                                    <input id="horasDisponibles" type="number" class="form-control"
+                                        formControlName="horasDisponibles"
+                                        [class.is-invalid]="esInvalido('horasDisponibles')" />
+                                    @if (esInvalido('horasDisponibles')) {
+                                    <div class="invalid-feedback">Entre 2 y 40 horas</div>
+                                    }
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <label for="codigoPostal" class="form-label">Código postal</label>
+                                    <input id="codigoPostal" type="text" class="form-control" maxlength="5"
+                                        formControlName="codigoPostal"
+                                        [class.is-invalid]="esInvalido('codigoPostal')" />
+                                    @if (esInvalido('codigoPostal')) {
+                                    <div class="invalid-feedback">Código postal no válido</div>
+                                    }
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary" [disabled]="formularioRegistro.invalid">
+                                Registrarme
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
