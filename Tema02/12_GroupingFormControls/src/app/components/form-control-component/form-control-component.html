@@ -30,6 +30,16 @@
     <div class="mb-3">
         <label for="email" class="form-label">Email del autor</label>
         <input id="email" type="email" class="form-control" formControlName="email" />
+        <!-- @if (formularioBlog.get(email) && (email.dirty || email.touched)) {
+        @if (email.hasError('required')) {
+        <small>El email es obligatorio</small>
+        }
+        @if (email.hasError('email')) {
+        <small>No tiene formato email</small>
+        }
+        } -->
+
+
     </div>
 
     <fieldset class="mb-3">
