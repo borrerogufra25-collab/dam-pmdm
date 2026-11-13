@@ -1,1 +1,189 @@
-<p>formulario-page works!</p>
+<form [formGroup]="formularioVete" (ngSubmit)="onSubmit()" novalidate>
+
+    <fieldset class="mb-4">
+        <h1 class="h5 border-bottom pb-2 mb-3">Datos personales</h1>
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input id="nombre" type="text" class="form-control" formControlName="nombre"
+                    [class.is-invalid]="esInvalido('nombre')" />
+                @if (esInvalido('nombre')) {
+                <div class="invalid-feedback">
+                    @if (formularioVete.get('nombre')?.errors?.['required']) {
+                    <div>El nombre es obligatorio</div>
+                    }
+                    @if (formularioVete.get('nombre')?.errors?.['minlength']) {
+                    <div>Mínimo 2 caracteres</div>
+                    }
+                    @if (formularioVete.get('nombre')?.errors?.['maxlength']) {
+                    <div>Máximo 30 caracteres</div>
+                    }
+                    @if (formularioVete.get('nombre')?.errors?.['pattern']) {
+                    <div>Solo se permiten letras</div>
+                    }
+                </div>
+                }
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="apellidos" class="form-label">Apellidos</label>
+                    <input type="text" id="apellidos" class="form-control" formControlName="apellidos"
+                        [class.is-invalid]="esInvalido('apellidos')" />
+                    @if (esInvalido('apellidos')) {
+                    <div class="invalid-feedback">
+                        @if (formularioVete.get('apellidos')?.errors?.['required']) {
+                        <div>El nombre es obligatorio</div>
+                        }
+                        @if (formularioVete.get('apellidos')?.errors?.['minlength']) {
+                        <div>Mínimo 2 caracteres</div>
+                        }
+                        @if (formularioVete.get('apellidos')?.errors?.['maxlength']) {
+                        <div>Máximo 50 caracteres</div>
+                        }
+                        @if (formularioVete.get('apellidos')?.errors?.['pattern']) {
+                        <div>Solo se permiten letras</div>
+                        }
+                    </div>
+                    }
+                </div>
+
+
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" id="telefono" class="form-control" formControlName="telefonoCont"
+                            [class.is-invalid]="esInvalido('telefonoCont')" />
+                        @if (esInvalido('telefonoCont')) {
+                        <div class="invalid-feedback">
+                            @if (formularioVete.get('telefonoCont')?.errors?.['required']) {
+                            <div>El teléfono es obligatorio</div>
+                            }
+                            @if (formularioVete.get('telefonoCont')?.errors?.['pattern']) {
+                            <div>Introduce un teléfono español válido</div>
+                            }
+                        </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" class="form-control" formControlName="email"
+                            [class.is-invalid]="esInvalido('email')" />
+                        @if (esInvalido('email')) {
+                        <div class="invalid-feedback">
+                            @if (formularioVete.get('email')?.errors?.['required']) {
+                            <div>El email es obligatorio</div>
+                            }
+                            @if (formularioVete.get('email')?.errors?.['pattern']) {
+                            <div>Formato de email no válido</div>
+                            }
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="mb-4">
+        <h1 class="h5 border-bottom pb-2 mb-3">Datos Mascota</h1>
+        <div class="row g-3">
+
+
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="nombreMascota" class="form-label">Nombre de la mascota</label>
+                    <input type="text" id="nombreMascota" class="form-control" formControlName="nombreMascota"
+                        [class.is-invalid]="esInvalido('nombreMascota')" />
+                    @if (esInvalido('nombreMascota')) {
+                    <div class="invalid-feedback">
+                        @if (formularioVete.get('nombreMascota')?.errors?.['required']) {
+                        <div>El nombre de la mascota es obligatorio</div>
+                        }
+                        @if (formularioVete.get('nombreMascota')?.errors?.['minlength']) {
+                        <div>Mínimo 2 caracteres</div>
+                        }
+                        @if (formularioVete.get('nombreMascota')?.errors?.['maxlength']) {
+                        <div>Máximo 20 caracteres</div>
+                        }
+                        @if (formularioVete.get('nombreMascota')?.errors?.['pattern']) {
+                        <div>Solo letras, espacios y guiones</div>
+                        }
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <label for="especie" class="form-label">Especie</label>
+                        <select class="form-select form-select-lg" id="especie" formControlName="especie"
+                            [class.is-invalid]="esInvalido('especie')">
+                            <option selected disabled>Elige una</option>
+                            <option value="1">Perro</option>
+                            <option value="2">Gato</option>
+                            <option value="3">Ave</option>
+                            <option value="4">Otro</option>
+                        </select>
+                        @if (esInvalido('especie')) {
+                        <div class="invalid-feedback">
+                            @if (formularioVete.get('especie')?.errors?.['required']) {
+                            <div>El nombre de la mascota es obligatorio</div>
+                            }
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <div class="form-check" formControlName="sexo" [class.is-invalid]="esInvalido('sexo')">>
+                            <p>Sexo</p>
+                            <input class="form-check-input" type="radio" id="sexo" />
+                            <label class="form-check-label" for="sexo">Macho</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="sexo" />
+                            <label class="form-check-label" for="sexo">hembra</label>
+                        </div>
+                        @if (esInvalido('sexo')) {
+                        <div class="invalid-feedback">
+                            @if (formularioVete.get('sexo')?.errors?.['required']) {
+                            <div>Indica el sexo de la mascota</div>
+                            }
+                        </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="raza" class="form-label">Raza</label>
+                <input id="raza" type="text" class="form-control" formControlName="raza"
+                    [class.is-invalid]="esInvalido('raza')" />
+                @if (esInvalido('raza')) {
+                <div class="invalid-feedback">
+                    @if (formularioVete.get('raza')?.errors?.['minlength']) {
+                    <div>Máximo 40 caracteres</div>
+                    }
+                </div>
+                }
+            </div>
+
+
+
+        </div>
+    </fieldset>
+
+
+</form>

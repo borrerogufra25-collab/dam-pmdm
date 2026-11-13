@@ -52,4 +52,15 @@ export class FormularioPage {
     politica: new FormControl('', Validators.requiredTrue),
     recordatorio: new FormControl(''),
   });
+
+  onSubmit() {
+    console.warn(this.formularioVete.value);
+  }
+
+  esInvalido(campo: string) {
+    return (
+      this.formularioVete.get(campo)?.invalid &&
+      (this.formularioVete.get(campo)?.dirty || this.formularioVete.get(campo)?.touched)
+    );
+  }
 }
