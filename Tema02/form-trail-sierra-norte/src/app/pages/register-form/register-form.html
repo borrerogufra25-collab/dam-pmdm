@@ -1,0 +1,206 @@
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <header class="mb-4">
+                <h1 class="h2 fw-bold">Inscripción — Trail Sierra Norte</h1>
+                <p class="text-body-secondary">Completa tus datos para formalizar tu dorsal.</p>
+            </header>
+
+            <!-- TODO: Vincular [formGroup] y el evento (ngSubmit) -->
+            <form novalidate [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                <!-- ==================== BLOQUE 1: DATOS PERSONALES ==================== -->
+                <!-- TODO: Vincular formGroupName="datosPersonales" -->
+                <fieldset class="border rounded-3 p-4 mb-4 bg-body-tertiary">
+                    <legend class="float-none w-auto px-2 fs-5 fw-semibold">
+                        1. Datos del corredor
+                    </legend>
+
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre completo *</label>
+                        <input id="nombre" type="text" class="form-control" placeholder="Ej. Laura García"
+                            formGroupName="nombreCompleto" [class.is-invalid]="esInvalido('nombreCompleto')" />
+                        <!-- TODO: Mostrar mensajes de error (ej. <div class="text-danger small mt-1">) -->
+                        @if (esInvalido('nombreCompleto')) {
+                        <div class="invalid-feedback text-danger small mt-1">
+                            @if (formulario.get('nombreCompleto')?.errors?.['required']) {
+                            <div>El nombre es obligatorio</div>
+                            }
+                            @if (formulario.get('nombreCompleto')?.errors?.['minlength']) {
+                            <div>Mínimo 3 caracteres</div>
+                            }
+                            @if (formulario.get('nombreCompleto')?.errors?.['maxlength']) {
+                            <div>Máximo 50 caracteres</div>
+                            }
+                            @if (formulario.get('nombreCompleto')?.errors?.['pattern']) {
+                            <div>Solo se permiten letras y espacios</div>
+                            }
+                        </div>
+                        }
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email *</label>
+                        <input id="email" type="email" class="form-control" placeholder="laura@ejemplo.com"
+                            formGroupName="email" [class.is-invalid]="esInvalido('email')" />
+                        <!-- TODO: Mostrar mensajes de error -->
+                        @if (esInvalido('email')) {
+                        <div class="invalid-feedback text-danger small mt-1">
+                            @if (formulario.get('email')?.errors?.['required']) {
+                            <div>El email es obligatorio</div>
+                            }
+                            @if (formulario.get('email')?.errors?.['pattern']) {
+                            <div>Formato de email no válido</div>
+                            }
+                        </div>
+                        }
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono de contacto *</label>
+                        <input id="telefono" type="tel" class="form-control" placeholder="+34 612345678"
+                            formGroupName="telefono" [class.is-invalid]="esInvalido('telefono')" />
+                        <!-- TODO: Mostrar mensajes de error -->
+                        @if (esInvalido('telefono')) {
+                        <div class="invalid-feedback text-danger small mt-1">
+                            @if (formulario.get('telefono')?.errors?.['required']) {
+                            <div>El teléfono es obligatorio</div>
+                            }
+                            @if (formulario.get('telefono')?.errors?.['pattern']) {
+                            <div>Introduce un teléfono español válido</div>
+                            }
+                        </div>
+                        }
+                    </div>
+
+                    <div class="mb-1">
+                        <label for="password" class="form-label">Contraseña de acceso *</label>
+                        <input id="password" type="password" class="form-control" placeholder="Mínimo 8 caracteres"
+                            formGroupName="contrasenia" [class.is-invalid]="esInvalido('contrasenia')" />
+                        <!-- TODO: Mostrar mensajes de error -->
+                        @if (esInvalido('contrasenia')) {
+                        <div class="invalid-feedback text-danger small mt-1">
+                            @if (formulario.get('contrasenia')?.errors?.['required']) {
+                            <div>La contraseña es obligatoria</div>
+                            }
+                            @if (formulario.get('contrasenia')?.errors?.['minlength']) {
+                            <div>Entre 8 y 20 caracteres</div>
+                            }
+                            @if (formulario.get('contrasenia')?.errors?.['pattern']) {
+                            <div>Debe incluir mayúscula, minúscula, número y no contener espacios</div>
+                            }
+                        </div>
+                        }
+                    </div>
+                </fieldset>
+
+                <!-- ==================== BLOQUE 2: DATOS DE LA CARRERA ==================== -->
+                <!-- TODO: Vincular formGroupName="datosCarrera" -->
+                <fieldset class="border rounded-3 p-4 mb-4 bg-body-tertiary">
+                    <legend class="float-none w-auto px-2 fs-5 fw-semibold">
+                        2. Datos de la carrera
+                    </legend>
+
+                    <div class="mb-3">
+                        <label for="modalidad" class="form-label">Modalidad *</label>
+                        <select id="modalidad" class="form-select" formGroupName="datosCarrera"
+                            [class.is-invalid]="esInvalido('datosCarrera')">
+                            <option value="10k" selected>10K Iniciación</option>
+                            <option value="21k">21K Media Maratón</option>
+                            <option value="42k">42K Maratón Alpino</option>
+                        </select>
+                        <!-- TODO: Mostrar mensajes de error -->
+                        @if (esInvalido('datosCarrera')) {
+                        <div class="invalid-feedback text-danger small mt-1">
+                            @if (formulario.get('datosCarrera')?.errors?.['required']) {
+                            <div>Selecciona una modalidad</div>
+                            }
+                        </div>
+                        }
+                    </div>
+
+                    <div class="mb-3">
+                        <span class="form-label d-block">Categoría *</span>
+                        <div class="form-check form-check-inline">
+                            <input id="catMasculino" type="radio" class="form-check-input" name="categoria"
+                                value="masculino" formGroupName="categoria"
+                                [class.is-invalid]="esInvalido('categoria')" />
+                            <label for="catMasculino" class="form-check-label">Masculino</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input id="catFemenino" type="radio" class="form-check-input" name="categoria"
+                                value="femenino" formGroupName="categoria"
+                                [class.is-invalid]="esInvalido('categoria')" />
+                            <label for="catFemenino" class="form-check-label">Femenino</label>
+                        </div>
+                        <!-- TODO: Mostrar mensajes de error -->
+                        @if (esInvalido('categoria')) {
+                        <div class="invalid-feedback text-danger small mt-1">
+                            @if (formulario.get('categoria')?.errors?.['required']) {
+                            <div>Indica tu categoría</div>
+                            }
+                        </div>
+                        }
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="edad" class="form-label">Edad *</label>
+                            <input id="edad" type="number" class="form-control" placeholder="18 - 85"
+                                formGroupName="edad" [class.is-invalid]="esInvalido('edad')" />
+                            <!-- TODO: Mostrar mensajes de error -->
+
+                            <!-- no me da tiempo a seguir -->
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="codigoFederado" class="form-label">Código de federado *</label>
+                            <input id="codigoFederado" type="text" class="form-control" placeholder="FED-1234" />
+                            <!-- TODO: Mostrar mensajes de error -->
+                        </div>
+                    </div>
+
+                    <div class="mb-1">
+                        <label for="observaciones" class="form-label">
+                            Alergias u observaciones médicas (opcional)
+                        </label>
+                        <textarea id="observaciones" class="form-control" rows="3"
+                            placeholder="Indica si tienes alguna alergia o condición relevante..."></textarea>
+                        <!-- TODO: Mostrar mensajes de error -->
+                    </div>
+                </fieldset>
+
+                <!-- ==================== BLOQUE 3: CONDICIONES ==================== -->
+                <!-- TODO: Vincular formGroupName="condiciones" -->
+                <fieldset class="border rounded-3 p-4 mb-4 bg-body-tertiary">
+                    <legend class="float-none w-auto px-2 fs-5 fw-semibold">
+                        3. Condiciones y comunicaciones
+                    </legend>
+
+                    <div class="form-check mb-2">
+                        <input id="aceptoReglamento" type="checkbox" class="form-check-input" />
+                        <label for="aceptoReglamento" class="form-check-label">
+                            Acepto el reglamento de la carrera *
+                        </label>
+                        <!-- TODO: Mostrar mensajes de error -->
+                    </div>
+
+                    <div class="form-check">
+                        <input id="recibirTrack" type="checkbox" class="form-check-input" />
+                        <label for="recibirTrack" class="form-check-label">
+                            Quiero recibir el track GPS de la ruta por email
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- TODO: Deshabilitar el botón mientras el formulario no sea válido -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success btn-lg" [disabled]="formulario.invalid">
+                        Inscribirse
+                    </button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
