@@ -1,1 +1,11 @@
-<p>lista-peliculas-page works!</p>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Película</h2>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+        @for (item of peliculaList(); track item.id) {
+        <app-pelicula-item-component class="col" [pelicula]="item"></app-pelicula-item-component>
+        }
+    </div>
+</div>
