@@ -1,5 +1,6 @@
 <div class="card pokemon-card h-100 shadow-sm border-0">
     <div class="card-body text-center d-flex flex-column">
+        <img class="card-img-top" [src]="posterUrl" alt=" " />
         <h5 class="card-title text-capitalize mb-3">{{ pelicula()?.original_title }}</h5>
         <p class="card-body text-capitalize mb-3">{{pelicula()?.original_language}}</p>
     </div>

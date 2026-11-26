@@ -1,5 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Result } from '../../interfaces/movie-responese';
+import { PeliculaService } from '../../service/pelicula-service';
 
 @Component({
   imports: [],
@@ -8,7 +9,10 @@ import { Result } from '../../interfaces/movie-responese';
   templateUrl: './pelicula-item-component.html',
 })
 export class PeliculaItemComponent {
+  private readonly peliculaService = inject(PeliculaService);
   pelicula = input<Result>();
 
-  
+  get posterUrl(): string | null {
+    return this.peliculaService.getPosterUrl(this.pelicula()?.poster_path ?? null);
+  }
 }

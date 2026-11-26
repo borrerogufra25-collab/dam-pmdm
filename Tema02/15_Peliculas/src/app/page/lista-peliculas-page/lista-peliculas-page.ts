@@ -14,7 +14,7 @@ export class ListaPeliculasPage implements OnInit {
   peliculaList = signal<Result[]>([]);
 
   ngOnInit(): void {
-    this.peliculaService.getPopularPelicula().subscribe((resp) => {
+    this.peliculaService.getPeliculaPopular().subscribe((resp) => {
       this.peliculaList.set(resp.results);
     });
   }

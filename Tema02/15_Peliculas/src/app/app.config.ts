@@ -3,16 +3,18 @@ import {
   provideBrowserGlobalErrorListeners,
   importProvidersFrom,
 } from '@angular/core';
-import { provideRouter, RouterLink } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { tmdbApiKeyInterceptor } from './interceptors/tmdb-api-key-interceptor';
+import { languageInterceptorInterceptor } from './interceptors/language-interceptor-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([tmdbApiKeyInterceptor, languageInterceptorInterceptor])),
     importProvidersFrom(NgbModule),
   ],
 };
